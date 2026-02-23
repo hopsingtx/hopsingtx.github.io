@@ -12,25 +12,32 @@ body {
 .hero {
   min-height: 100vh;
   width: 100%;
-
-  background-image: url("object/background.png");
   position: relative; /* This allows absolute positioning of child elements */
   overflow: hidden; /* Prevents overflow issues */
-  background-size: 100% 100%;
-  background-position: absolute;
-  background-repeat: no-repeat;
-
   display: flex;
   padding: 80px 8%;
 }
 
-@media (max-width: 768px){
-  .hero{
-    transform: rotate(90deg);
-    width: 100vh;
-    height: 100vw;
+.hero::before {
+  content: ""; /* Necessary for pseudo-elements */
+  background-image: url("object/background.png");
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Send it behind content */
+}
+
+@media (max-width: 768px) {
+  .hero::before {
+    transform: rotate(90deg); /* Rotate only the background */
   }
 }
+
 
 /* Layout */
 
