@@ -32,7 +32,7 @@ body {
   z-index: -1; /* Send it behind content */
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .hero::before {
     transform: rotate(90deg); /* Rotate only the background */
   }
